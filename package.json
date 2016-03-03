@@ -1,0 +1,18 @@
+{
+  "name": "hmr-network-issue",
+  "version": "1.0.0",
+  "description": "HMR doesn't work over network with multiple entry points, works fine with only one",
+  "main": "index.js",
+  "devDependencies" : {
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "start": "npm run hmr-working & npm run hmr-not-working",
+    "hmr-working": "webpack-dev-server 'webpack-dev-server/client?/' --host 0.0.0.0 --port 9090",
+    "hmr-not-working": "webpack-dev-server 'webpack-dev-server/client?/' --host 0.0.0.0 --port 9191 --config webpack.config.not.working.js"
+  }
+}
